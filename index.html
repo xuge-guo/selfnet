@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xuge Guo · Robotics Portfolio</title>
+  <meta name="description" content="Portfolio of Xuge Guo – robotics student focusing on lifelike locomotion, sim-to-real transfer, and reinforcement learning." />
+  <meta property="og:title" content="Xuge Guo · Robotics Portfolio" />
+  <meta property="og:description" content="Quadruped locomotion at 0.40 m/s, MuJoCo simulation, RL training, and hardware implementation." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0e1116" />
+  <style>
+    :root{
+      --bg:#0b0e13; --card:#121722; --muted:#8891a7; --text:#e6edf3; --acc:#69d2ff; --acc2:#9bffaf; --ring:rgba(105,210,255,.35);
+      --max:1120px; --radius:18px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f8fafc; --card:#ffffff; --muted:#5b667b; --text:#111827; --acc:#0ea5e9; --acc2:#16a34a; --ring:rgba(14,165,233,.25); }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:radial-gradient(1200px 600px at 80% -10%, rgba(105,210,255,.08), transparent 60%), var(--bg); color:var(--text)}
+    a{color:var(--acc); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); padding:28px; margin:0 auto}
+    .nav{display:flex; gap:14px; justify-content:flex-end; align-items:center}
+    .nav a{padding:8px 12px; border-radius:10px; background:transparent}
+    .nav a.btn{background:linear-gradient(135deg,var(--acc),var(--acc2)); color:#001018; font-weight:700; box-shadow:0 8px 24px -10px var(--ring)}
+    header.hero{margin-top:40px; display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center}
+    @media (max-width:900px){ header.hero{grid-template-columns:1fr} }
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.00)), var(--card); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:0 10px 40px -20px rgba(0,0,0,.5)}
+    .p24{padding:24px}
+    .tag{display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.3px; background:rgba(105,210,255,.12); color:#b9eeff; border:1px solid rgba(105,210,255,.35)}
+    .h1{font-weight:800; font-size:clamp(28px,5vw,44px); line-height:1.15; margin:14px 0}
+    .muted{color:var(--muted)}
+    .grid{display:grid; gap:18px}
+    .g2{grid-template-columns:repeat(2,1fr)}
+    .g3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){ .g2,.g3{grid-template-columns:1fr} }
+    .btn{display:inline-flex; gap:10px; align-items:center; padding:10px 14px; border-radius:12px; background:#182131; color:#eaf7ff; border:1px solid rgba(105,210,255,.25)}
+    .btn:hover{transform:translateY(-1px); transition:transform .15s}
+    .btn.primary{background:linear-gradient(135deg,var(--acc),var(--acc2)); color:#001018; font-weight:700; border:0}
+    .chip{display:inline-flex; gap:8px; align-items:center; padding:8px 10px; border-radius:999px; background:#0e1524; border:1px solid rgba(255,255,255,.06); color:#cbd5e1; font-size:13px}
+    .proj h3{margin:0 0 8px}
+    .proj .meta{font-size:13px}
+    .section h2{font-size:22px; letter-spacing:.3px; margin:0 0 8px}
+    footer{padding:36px 0 60px; color:var(--muted); text-align:center}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; padding:.2em .5em; border:1px solid rgba(255,255,255,.15); border-bottom-width:2px; border-radius:6px; background:#0d1322}
+    .avatar{aspect-ratio:1/1; width:220px; border-radius:20px; background:linear-gradient(180deg,#172036,#0b0e13); border:1px solid rgba(255,255,255,.06)}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a class="btn" href="#contact">Contact</a>
+      <a class="btn btn-small btn primary" href="Xuge_Guo_Resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
+    </nav>
+
+    <header class="hero">
+      <div class="card p24">
+        <span class="tag">Robotics · RL · Sim‑to‑Real</span>
+        <h1 class="h1">Hi, I’m <span class="mono">Xuge Guo</span> — I build robots that move faster and more lifelike using machine learning.</h1>
+        <p class="muted">Focus areas: quadruped locomotion, MuJoCo simulation, reinforcement learning, onboard control (Raspberry Pi), and efficient gait optimization.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
+          <a class="btn primary" href="#projects">See my work</a>
+          <a class="btn" href="https://youtu.be/MEpT9Vg7QZ0" target="_blank">Watch journey video ▷</a>
+          <button class="btn" id="copyEmail" type="button">Copy email</button>
+        </div>
+        <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+          <span class="chip">MuJoCo</span>
+          <span class="chip">Stable‑Baselines3 (PPO)</span>
+          <span class="chip">Python</span>
+          <span class="chip">CAD & 3D Printing</span>
+          <span class="chip">Raspberry Pi Control</span>
+        </div>
+      </div>
+      <div class="card p24" aria-label="project highlight">
+        <img src="preview.jpg" alt="Quadruped DOT walking" class="avatar" />
+        <div style="margin-top:14px">
+          <div class="muted mono">Key metric</div>
+          <div style="font-size:28px; font-weight:800">0.40 m/s</div>
+          <div class="muted">Stable walking speed on hardware</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="projects" class="section" style="margin-top:36px">
+      <h2>Featured Project</h2>
+      <p class="muted">End‑to‑end build of a self‑learned quadruped gait: CAD → hardware → simulation → RL → deployment.</p>
+      <div class="grid g2">
+        <div class="card p24 proj">
+          <h3>DOT: Lifelike Quadruped Locomotion</h3>
+          <p>Designed, fabricated, and programmed a quadruped robot from scratch. Built a MuJoCo simulator and trained a PPO policy (>50M steps) to produce fast and natural gaits. Achieved <strong>0.40 m/s</strong> stable walking on hardware.</p>
+          <div class="meta muted">Roles: mechanical design, controls, ML; Tools: MuJoCo, SB3, Python, Raspberry Pi</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+            <a class="btn" href="https://youtu.be/MEpT9Vg7QZ0" target="_blank">Journey video ▷</a>
+            <a class="btn" href="https://github.com/xg2472-ai" target="_blank">Code on GitHub</a>
+            <a class="btn" href="report.pdf" target="_blank">Project report (PDF)</a>
+          </div>
+        </div>
+        <div class="card p24">
+          <video style="width:100%; border-radius:14px; outline:1px solid rgba(255,255,255,.08)" controls poster="thumb.jpg">
+            <source src="journey.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p class="muted" style="margin:.5rem 0 0">Short demo: design → simulation → RL → hardware.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="margin-top:24px">
+      <h2>Other Project</h2>
+      <div class="grid g2">
+        <div class="card p24 proj">
+          <h3>Two‑Wheel Target‑Tracking Robot (MakeCU · Best Use of CV)</h3>
+          <ul>
+            <li>24‑hour Raspberry Pi‑based robot capable of autonomous target tracking and obstacle avoidance.</li>
+            <li>Real‑time computer vision to localize the target and control differential steering.</li>
+            <li>Ultrasonic sensing for forward distance; auto‑brake when obstacle &lt; 50 cm.</li>
+            <li>Integrated camera processing, IMU stabilization, motor control, and sensor fusion.</li>
+          </ul>
+          <div class="meta muted">Role: team lead · Tools: Python, OpenCV, IMU, ultrasonic sensors</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+            <a class="btn" href="https://youtu.be/MEpT9Vg7QZ0" target="_blank">Demo video ▷</a>
+          </div>
+        </div>
+        <div class="card p24">
+          <img src="makecu.jpg" alt="MakeCU tracking robot" style="width:100%; border-radius:14px; outline:1px solid rgba(255,255,255,.08)"/>
+          <p class="muted" style="margin:.5rem 0 0">Visual tracking & obstacle avoidance demo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section" style="margin-top:30px">
+      <h2>Skills</h2>
+      <div class="grid g3">
+        <div class="card p24">
+          <h3>Machine Learning & Control</h3>
+          <ul>
+            <li>PPO (Stable‑Baselines3), reward design, curriculum</li>
+            <li>Trajectory generation, residual PD, feedback policies</li>
+            <li>Logging & evaluation: speed, torque, stability</li>
+          </ul>
+        </div>
+        <div class="card p24">
+          <h3>Simulation & Software</h3>
+          <ul>
+            <li>MuJoCo + MJCF modeling, viewers, sensors</li>
+            <li>Python toolchains; TensorBoard; video tooling</li>
+            <li>Git/GitHub, reproducible experiments</li>
+          </ul>
+        </div>
+        <div class="card p24">
+          <h3>Hardware</h3>
+          <ul>
+            <li>CAD & 3D printing; mass/inertia estimation</li>
+            <li>Raspberry Pi control; IMU & motor integration</li>
+            <li>Rapid prototyping and testing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" style="margin-top:30px">
+      <h2>About</h2>
+      <div class="card p24">
+        <p>I am a robotics student focused on lifelike locomotion. I use machine learning not only to increase speed, but to make motion more fluid and natural — closer to how biological organisms move. I’m currently exploring self‑modeling and sim‑to‑real adaptation.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="margin-top:30px">
+      <h2>Contact</h2>
+      <div class="card p24">
+        <p>Email: <a id="emailLink" href="mailto:xg2472@columbia.edu">xg2472@columbia.edu</a> · GitHub: <a href="https://github.com/xg2472-ai" target="_blank">@xg2472-ai</a> · LinkedIn: <a href="https://www.linkedin.com/in/xuge-guo-423791382" target="_blank">xuge‑guo</a></p>
+        <p class="muted">Tip: bring this page on your phone or laptop during the meeting. The top buttons give instant access to the video, code, and résumé.</p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Xuge Guo · Built with clean HTML/CSS. No frameworks.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const email = 'xg2472@columbia.edu';
+    document.getElementById('copyEmail').addEventListener('click', async () => {
+      try{ await navigator.clipboard.writeText(email); alert('Email copied: '+email);}catch(e){ alert('Copy failed.'); }
+    });
+  </script>
+</body>
+</html>
